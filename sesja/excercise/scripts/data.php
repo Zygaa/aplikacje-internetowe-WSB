@@ -1,8 +1,11 @@
 <?php
+  session_start();
   echo "<h4>Dane użytkownika</h4>";
+  $error = 0;
   foreach ($_POST as $key => $value) {
     if (empty($value) || !isset($_POST['plec'])) {
       //echo "Pole do wypełnienia: $key<br>";
+      $error = 1;
       echo "<script>history.back()</script>";
     }
     echo "$key: $value"."<br>";

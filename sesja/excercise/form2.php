@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,6 +8,11 @@
     <title>Form</title>
   </head>
   <body>
+    <?php
+      if (isset($_SESSION['error'])) {
+        echo "<h5>".$_SESSION['error']."</h5>";
+      }
+     ?>
     <form action="./scripts/data.php" method="post">
       <input type="text" name="name" placeholder="imię"><br><br>
       <input type="text" name="surname" placeholder="nazwisko"><br><br>
